@@ -9,14 +9,14 @@ const CreatingUserList = props => {
 	};
 	return (
 		<div className="text-center">
-			<ul>
+			<ul className="border-bottom">
 				{props.lista.map((item, index) => (
-					<li key={index}>
+					<li key={index} className="border-bottom">
 						{item}
 						<button
 							className="btn"
 							onClick={() => DeleteItems(index)}>
-							<i className="fas fa-trash-alt" />
+							<i className="fas fa-times" />
 						</button>
 					</li>
 				))}
