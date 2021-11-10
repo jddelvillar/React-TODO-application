@@ -4,49 +4,66 @@ import CreatingUserList from "./creatinguserlist.jsx";
 const Formulary = () => {
 	const [inputValue, setInputValue] = useState("");
 	const [list, setlist] = useState([]);
-	//const [selectedInput, setSelectedInput] = useState("no task");
+	//const [error, setError] = useState("No task, Add a task");
 
 	useEffect(() => {
 		// Actualiza el título del documento usando la API del navegador
-		//console.log("escrito usuario: " + inputValue);
-		//console.log(list);
+		console.log("escrito usuario: " + inputValue);
+		console.log(list);
 	});
 
 	const handleKeepDown = e => {
 		const value = inputValue.trim();
 		if (e.key === "Enter" && value !== "" && !list.includes(value)) {
+			//e.key Me reconoce q tecla pincho en este caso es enter
 			//console.log("presiona la tecla enter");
-			setlist([...list, value]);
+			setlist([...list, value]); //...list= variable.push(e.target.value)
 			setInputValue("");
 		}
-		//	console.log("tecla: " + e.key);
+		//    console.log("tecla: " + e.key);
 	};
-	// esto deberia actulizar selectedInput para actualizar el placeholder
 	const handleonChange = e => {
 		setInputValue(e.target.value);
 	};
-	/*esto deberia eliminar la duplicacion de elementos de la lista
-	let righted = righted.filter((element, index) => {
-		return righted.indexOf(element) === index;
-	});*/
+	/*const changeValorInput = () => {
+		if (inputValue == null) {
+			setError() = true;
+		} else {
+			setError() = "";
+		}
+	};*/
 
 	return (
-		<div className="border-bottom-3">
+		<div>
 			<input
+				className="input"
 				type="text"
 				onKeyDown={handleKeepDown}
 				onChange={handleonChange}
 				value={inputValue}
 				placeholder={
-					list.lenght > 0
-						? "What needs to be done"
-						: "No task, add a task"
-				}
+					list.length > 0
+						? "What needs to be done?"
+						: "No task, Add a task"
+				} //{changeValorInput}
 			/>
 			<CreatingUserList lista={list} setlist={setlist} />
-			<p>{list.length} item left</p>
+			<p className="text-start fs-6 fst-italic">
+				{" "}
+				{list.length} Item Left{" "}
+			</p>
 		</div>
 	);
 };
+
+//usuario debe apretar Enter
+
+/*const node = document.getElementById("co");
+node.addEventListener("keydown", function onEvent(event) {
+	if (e.key === "Enter") {
+		console.log("presion la tecla enter");
+	}
+});*/
+
 
 export default Formulary;

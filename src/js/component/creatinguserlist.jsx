@@ -9,7 +9,7 @@ const CreatingUserList = props => {
 	};
 	return (
 		<div className="text-center">
-			<ul className="border-bottom">
+			<ul className="lista">
 				{props.lista.map((item, index) => (
 					<li key={index} className="border-bottom">
 						{item}
@@ -29,5 +29,6 @@ CreatingUserList.propTypes = {
 	lista: PropTypes.array,
 	setlist: PropTypes.func
 };
+
 
 export default CreatingUserList;

@@ -1,23 +1,19 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-@import "~bootstrap/scss/bootstrap.scss";
-
 
 .card{
     height: 60rem;
-    
+    background-color: rgb(245, 236, 225);
+    font-size: larger;
 
-}
-
-.container{
-    margin-top: 50px;
-    max-width: 850px;
 }
 
 
 .checklist{
-    
-    list-style-type:none
+
+    list-style-type:none;
+
+
 }
 .btn{
     font-size: larger;
@@ -25,22 +21,48 @@
 }
 ul {
     list-style: none;
+
 }
 
-body{
-       background: #4a898d;
-}
-.note{
-   margin-right: 15rem;
-   color: lightgrey;
-}
+.input{
 
+    border: 0px;
+    background: transparent;
+    color: #101010;
+    margin-left: -158px; 
+    text-align:center;
+    width: 674px;
+
+
+ 
+}
 input::placeholder{
-color: #101010;
-background-color: none;
+    color: #101010;
+    background-color: none;
+    border-bottom: rgb(238, 231, 231) solid 1px;
 }
 
 input:focus{
-    border:none;
-    outline:none;
+    border: none;
+    outline: none;
+}
+
+
+.notebook{
+    margin-top: 8rem;
+    width: 46rem;
+ 
+}
+
+.lista{
+    margin-left: -12rem;
+    text-align: center;
+    width: 200%;
+}
+
+
+p{
+    margin-left: -145px;
+    margin-bottom: -3px;
+    color:rgb(210, 207, 223) ;
 }
