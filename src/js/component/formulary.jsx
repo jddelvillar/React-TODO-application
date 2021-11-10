@@ -13,9 +13,10 @@ const Formulary = () => {
 	});
 
 	const handleKeepDown = e => {
-		if (e.key === "Enter") {
+		const value = inputValue.trim();
+		if (e.key === "Enter" && value !== "" && !list.includes(value)) {
 			//console.log("presiona la tecla enter");
-			setlist([...list, inputValue]);
+			setlist([...list, value]);
 			setInputValue("");
 		}
 		//	console.log("tecla: " + e.key);
@@ -24,6 +25,10 @@ const Formulary = () => {
 	const handleonChange = e => {
 		setInputValue(e.target.value);
 	};
+	/*esto deberia eliminar la duplicacion de elementos de la lista
+	let righted = righted.filter((element, index) => {
+		return righted.indexOf(element) === index;
+	});*/
 
 	return (
 		<div className="border-bottom-3">
@@ -32,7 +37,11 @@ const Formulary = () => {
 				onKeyDown={handleKeepDown}
 				onChange={handleonChange}
 				value={inputValue}
-				placeholder="No task, add one..."
+				placeholder={
+					list.lenght > 0
+						? "What needs to be done"
+						: "No task, add a task"
+				}
 			/>
 			<CreatingUserList lista={list} setlist={setlist} />
 			<p>{list.length} item left</p>
